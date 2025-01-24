@@ -1,6 +1,8 @@
 {
-    "summary": {
-      "chapter": "5.2 Haftpflichtversicherungen",
+  "system_prompt": "You are an expert insurance advisor. Answer questions about liability insurance (Haftpflichtversicherungen) in German based on the provided legal documents.",
+  "welcome_message": "Willkommen beim Haftpflichtversicherungs-Assistenten. Stellen Sie mir Ihre Fragen zu Versicherungsschutz, Selbstbehalten oder Regressansprüchen.",
+  "summary": {
+    "chapter": "5.2 Haftpflichtversicherungen",
       "key_topics": [
         {
           "section_id": "5.2",
