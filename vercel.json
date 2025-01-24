@@ -6,7 +6,7 @@
         "use": "@vercel/node"
       },
       {
-        "src": "index.html",
+        "src": "/*.html",
         "use": "@vercel/static"
       }
     ],
@@ -20,15 +20,12 @@
         "src": "/texts/(.*)",
         "headers": {
           "Access-Control-Allow-Origin": "*",
-          "Cache-Control": "public, max-age=3600"
+          "Cache-Control": "public, max-age=300"
         }
       },
       {
         "src": "/(.*)",
-        "dest": "/index.html",
-        "headers": {
-          "Access-Control-Allow-Origin": "*"
-        }
+        "dest": "/index.html"
       }
     ]
   }
