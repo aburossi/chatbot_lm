@@ -2,32 +2,32 @@ let conversationHistory = [];
 let systemPrompt = "";
 
 async function initializeChat() {
-    // Get JSON name from URL parameter
-    const params = new URLSearchParams(window.location.search);
-    const jsonName = params.keys().next().value;
-    
     try {
-        // Load JSON configuration
-        const response = await fetch(`texts/${jsonName}.json`);
+        // Get JSON name from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const jsonName = urlParams.get('config'); // Changed to use named parameter
+        
+        if (!jsonName) {
+            throw new Error('Missing config parameter in URL');
+        }
+
+        // Sanitize filename and load JSON
+        const safeJsonName = jsonName.replace(/[^a-zA-Z0-9._-]/g, '');
+        const response = await fetch(`texts/${safeJsonName}.json`);
+        
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        
         const config = await response.json();
         systemPrompt = config.system_prompt;
         
-        // Initialize conversation
-        conversationHistory = [{
-            role: "system",
-            content: systemPrompt
-        }];
+        conversationHistory = [{ role: "system", content: systemPrompt }];
+        addMessage("Bot", config.welcome_message || "How can I help you today?", "bot");
         
-        // Set up UI interactions
-        document.getElementById('send-btn').addEventListener('click', sendMessage);
-        document.getElementById('user-input').addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') sendMessage();
-        });
-        
-        addMessage("Bot", "How can I help you today?", "bot");
     } catch (error) {
-        console.error('Error initializing chat:', error);
-        addMessage("System", "Failed to load chatbot configuration", "bot");
+        console.error('Initialization error:', error);
+        addMessage("System", `Configuration error: ${error.message}`, "bot");
     }
 }
 
