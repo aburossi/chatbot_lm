@@ -9,24 +9,35 @@ document.getElementById('user-input').addEventListener('keypress', (e) => {
 
 // Modified initializeChat function
 async function initializeChat() {
-  try {
-    const urlParams = new URLSearchParams(window.location.search);
-    const jsonName = urlParams.toString().split('=')[1] || urlParams.keys().next().value;
-    
-    const safeJsonName = jsonName.replace(/[^a-zA-Z0-9._-]/g, '');
-    const response = await fetch(`texts/${safeJsonName}.json`);
-    
-    const config = await response.json();
-    systemPrompt = config.system_prompt;
-    
-    conversationHistory = [{ role: "system", content: systemPrompt }];
-    addMessage("Bot", config.welcome_message, "bot");
-
-  } catch (error) {
-    console.error('Initialization error:', error);
-    addMessage("System", `Fehler: ${error.message}`, "bot");
+    try {
+      // Get parameter from URL without named parameter
+      const urlPath = window.location.search.substring(1); // Remove leading "?"
+      const jsonName = urlPath.split('?')[0]; // Handle multiple parameters
+      
+      if (!jsonName) throw new Error('Missing JSON parameter in URL');
+      
+      const safeJsonName = jsonName.replace(/[^a-zA-Z0-9._-]/g, '');
+      const response = await fetch(`texts/${safeJsonName}.json`);
+      
+      if (!response.ok) throw new Error(`HTTP error ${response.status}`);
+      
+      const config = await response.json();
+      systemPrompt = config.system_prompt;
+      
+      conversationHistory = [{ role: "system", content: systemPrompt }];
+      addMessage("Bot", config.welcome_message, "bot");
+  
+    } catch (error) {
+      console.error('Initialization error:', error);
+      addMessage("System", `Error: ${error.message}`, "bot");
+    }
   }
-}
+  
+  // Add this at the bottom of script.js
+  document.getElementById('send-btn').addEventListener('click', sendMessage);
+  document.getElementById('user-input').addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') sendMessage();
+  });
 
 // Modified sendMessage function
 async function sendMessage() {
