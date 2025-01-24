@@ -1,0 +1,53 @@
+{
+    "summary": {
+      "chapter": "5.2 Haftpflichtversicherungen",
+      "key_topics": [
+        {
+          "section_id": "5.2",
+          "topic": "Haftpflichtversicherungen",
+          "content": [
+            "Wer einer Drittperson Schaden zufügt, haftet dafür (OR 41).",
+            "Haftpflichtversicherungen decken Schäden an Drittpersonen und deren Sachen.",
+            "Selbstbehalte für Junglenker (1000 CHF), Neulenker (500 CHF), und übrige Lenker (kein Selbstbehalt).",
+            "Regressrecht: Versicherung kann Gelder zurückfordern bei grober Fahrlässigkeit.",
+            "Bonus-Malus-Regelung: Prämienreduktion bei unfallfreiem Fahren, höhere Prämien bei Unfällen.",
+            "Privathaftpflichtversicherung: Deckt Schäden an Dritten, nicht obligatorisch aber empfohlen."
+          ],
+          "legal_codes": ["OR 41", "SVG 63", "ZGB 333", "OR 55", "OR 58", "OR 56"]
+        }
+      ]
+    },
+    "questions": [
+      {
+        "question_id": "5.6",
+        "question": "Warum hat der Staat die Motorfahrzeughaftpflichtversicherung für obligatorisch erklärt?",
+        "answer": "Der Staat hat die Motorfahrzeughaftpflichtversicherung für obligatorisch erklärt, um sicherzustellen, dass Geschädigte in allen Fällen ihre berechtigten Ansprüche einfordern können, insbesondere bei Schäden durch Kausalhaftung im Strassenverkehr.",
+        "source": {
+          "section_id": "5.2",
+          "page": 150,
+          "legal_codes": ["SVG 63"]
+        }
+      },
+      {
+        "question_id": "5.7",
+        "question": "Wann nimmt eine Versicherungsgesellschaft Regress und welche Folgen hat das für den Versicherungsnehmer?",
+        "answer": "Eine Versicherungsgesellschaft nimmt Regress, wenn der Versicherungsnehmer grob fahrlässig gehandelt hat (z.B. Fahren ohne Sicherheitsgurte, betrunken oder mit abgefahrenen Pneus). Die Folgen sind, dass der Versicherungsnehmer einen Teil der Versicherungsleistung zurückzahlen muss, was bei grossen Schadenssummen sehr teuer werden kann.",
+        "source": {
+          "section_id": "5.2",
+          "page": 150,
+          "legal_codes": ["SVG 63"]
+        }
+      },
+      {
+        "question_id": "5.8",
+        "question": "Wie kann ich auch ohne direkte Schuld haftpflichtig werden?",
+        "answer": "Man kann auch ohne direkte Schuld haftpflichtig werden durch Kausalhaftung, z.B. als Eltern (Kind beschädigt Nachbarsfenster), Arbeitgeber (Mitarbeiter verursacht Unfall), Hauseigentümer (schlecht befestigte Ziegel beschädigen Auto) oder Tierhalter (Hund beisst Nachbarskind).",
+        "source": {
+          "section_id": "5.2",
+          "page": 151,
+          "legal_codes": ["ZGB 333", "OR 55", "OR 58", "OR 56"]
+        }
+      }
+    ]
+  }
+  
